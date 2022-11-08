@@ -9,7 +9,7 @@ async function bootstrap() {
 
   .setTitle('Ecommerce')
   .setDescription('Projeto integrador feito na Generation.')
-  .setContact('Ecommerce integrador', 'https://github.com/Ronald0Freire/projeto_integrador_ecommerce', '')
+  .setContact('Ecommerce integrador', 'https://github.com/Ronald0Freire/ecommerce', '')
   .setVersion('2.0')
   .addBearerAuth()
   .build()
@@ -21,6 +21,6 @@ async function bootstrap() {
 
   app.useGlobalPipes(new ValidationPipe());
   app.enableCors()
-  await app.listen(process.env.PORT || 3000);
+  await app.listen(process.env.PORT || 4000);
 }
 bootstrap();

@@ -12,6 +12,7 @@ import { UsuarioModule } from './usuario/usuario.module';
 
 @Module({
   imports: [
+    /*
       TypeOrmModule.forRoot({
       type: "mysql", 
       host: "localhost",
@@ -21,18 +22,18 @@ import { UsuarioModule } from './usuario/usuario.module';
       database: "db_ecommerce",
       entities: [Produto, Categoria, Usuario],
       synchronize: true,
-    }),
-    //  TypeOrmModule.forRoot({
-    //   type: 'postgres',
-    //   url: process.env.DATABASE_URL,
-    //   logging: false,
-    //   dropSchema: false,
-    //   ssl: {
-    //     rejectUnauthorized: false,
-    //   },
-    //   synchronize: true,
-    //   autoLoadEntities: true,
-    // }), 
+    }),*/
+    TypeOrmModule.forRoot({
+    type: 'postgres',
+    url: process.env.DATABASE_URL,
+    logging: false,
+    dropSchema: false,
+    ssl: {
+    rejectUnauthorized: false,
+    },
+    synchronize: true,
+    autoLoadEntities: true,
+    }), 
     ProdutoModule, CategoriaModule, UsuarioModule, AuthModule],
   controllers: [AppController],
   providers: [AppService],
