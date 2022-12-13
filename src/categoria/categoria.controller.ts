@@ -6,7 +6,6 @@ import { ApiBearerAuth, ApiTags } from "@nestjs/swagger";
 
 @ApiTags('Categorias')
 @ApiBearerAuth()
-@UseGuards(JwtAuthGuard)
 @Controller("/categorias")
 export class CategoriaController {
   constructor(private readonly categoriaService: CategoriaService) { }
@@ -29,18 +28,21 @@ export class CategoriaController {
     return this.categoriaService.findByMoveis(moveis);
   }
 
+  @UseGuards(JwtAuthGuard)
   @Post('/cadastrar')
   @HttpCode(HttpStatus.CREATED)
   create(@Body() Categoria: Categoria): Promise<Categoria> {
     return this.categoriaService.create(Categoria);
   }
 
+  @UseGuards(JwtAuthGuard)
   @Put('/atualizar')
   @HttpCode(HttpStatus.OK)
   update(@Body() Categoria: Categoria): Promise<Categoria> {
     return this.categoriaService.update(Categoria);
   }
 
+  @UseGuards(JwtAuthGuard)
   @Delete('/deletar/:id_categoria')
   @HttpCode(HttpStatus.NO_CONTENT)
   delete(@Param('id_categoria', ParseIntPipe) id_categoria: number){
