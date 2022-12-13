@@ -30,7 +30,7 @@ import { UsuarioModule } from './usuario/usuario.module';
       port: 3306,
       username: 'root',
       password: 'root',
-      database: 'we_do_care',
+      database: 'GreenShop',
       entities: [Usuario, Produto, Categoria],
       synchronize: true,
     }), */
